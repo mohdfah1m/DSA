@@ -6,5 +6,5 @@ public:
             i ^=num;
         }
         return i;
-    }
+    }  
 };
