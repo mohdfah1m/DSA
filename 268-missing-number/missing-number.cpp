@@ -2,20 +2,12 @@ class Solution {
 public:
     int missingNumber(vector<int>& nums) {
         int n=nums.size();
-        for(int i=0;i<n-1;i++){
-            for(int j=0;j<n-1-i;j++){
-                if(nums[j]>nums[j+1]){
-                    swap(nums[j],nums[j+1]);
-                }
-            }
+        
+        long long resultSum= (long long)n*(n+1)/2;
+        long long actualSum=0;
+        for(int num:nums){
+            actualSum+=num;
         }
-        int res=n;
-        for(int i=0;i<n;i++){
-            if(nums[i] !=i){
-                res=i;
-                break;
-            }
-        }
-        return res;
+        return (int)resultSum - actualSum;
     }
 };
