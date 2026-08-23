@@ -1,19 +1,19 @@
 class Solution {
 public:
     bool isPerfectSquare(int num) {
-        if(num<0){
-            return false;
-        }
-        if(num==1){
-            return true;
-        }
-        long long half= num/2;
-        bool result=false;
-        for(long long i=1;i<=half;i++){
-            if(i*i ==num){
-                result =true;
+        long long left=1, right =num;
+        while(left<=right){
+            long long mid =left + (right-left) /2;
+            long long square =mid*mid;
+
+            if(square == num){
+                return true;
+            }else if (square > num){
+                right =mid -1;
+            }else{
+                left = mid + 1;
             }
         }
-        return result;
+        return false;
     }
 };
